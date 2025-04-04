@@ -5,6 +5,10 @@ source "https://rubygems.org"
 gem "rake"
 
 group :test do
+  platforms :jruby do
+    gem "activerecord-jdbcpostgresql-adapter"
+  end
+
   platforms :ruby, :mswin, :mingw do
     gem "pg", "~> 1.1"
   end
@@ -14,6 +18,10 @@ group :test do
   gem "simplecov-lcov", ">= 0.8.0", require: false
 
   gem "activerecord", "~> 7.0.1"
+
+  gem "base64"
+  gem "bigdecimal"
+  gem "mutex_m"
 end
 
 gemspec path: "../../"
